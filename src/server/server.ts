@@ -1,12 +1,13 @@
 import express, { Request, Response, NextFunction, RequestHandler } from 'express';
 
-type ServerError = {
-  log: string,
-  status: number,
-  message: {err: string}
-};
+require('dotenv').config();
+console.log(process.env.PG_URI)
 
 const app = express();
+
+// routers
+const interviewRouter = require('./routes/interviewRouter');
+const applicationRouter = require('./routes/applicationRouter');
 
 app.use(express.json());
 
@@ -14,6 +15,14 @@ app.get('/', (req: Request, res: Response) => {
   res.status(200).send('HELLO!!!')
 })
 
+app.use('/api/application', applicationRouter);
+app.use('/api/interview', interviewRouter);
+
+type ServerError = {
+  log: string,
+  status: number,
+  message: {err: string}
+};
 app.use('/', (err: ServerError, req: Request, res: Response, next: NextFunction) => {
   const defaultErr: ServerError = {
     log: 'Express error handler caught unknown middleware error',
