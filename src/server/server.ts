@@ -6,6 +6,7 @@ console.log(process.env.PG_URI)
 const app = express();
 
 // routers
+const authRouter = require('./routes/authRouter');
 const interviewRouter = require('./routes/interviewRouter');
 const applicationRouter = require('./routes/applicationRouter');
 
@@ -15,6 +16,7 @@ app.get('/', (req: Request, res: Response) => {
   res.status(200).send('HELLO!!!')
 })
 
+app.use('/api/auth', authRouter);
 app.use('/api/application', applicationRouter);
 app.use('/api/interview', interviewRouter);
 
