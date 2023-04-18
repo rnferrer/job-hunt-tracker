@@ -1,11 +1,10 @@
 const { Pool } = require('pg');
 
 require('dotenv').config();
-const PG_URI = '';
-
+console.log(process.env.PG_URI);
 // create a new pool here using the connection string above
 const pool = new Pool({
-  connectionString: process.env.PG_URI
+  connectionString: process.env.PG_URI,
 });
 
 // Adding some notes about the database here will be helpful for future you or other developers.
@@ -16,8 +15,8 @@ const pool = new Pool({
 // which is a function that returns the invocation of pool.query() after logging the query
 // This will be required in the controllers to be the access point to the database
 module.exports = {
-  query: (text, params, callback) => {
+  query: (text: any, params: any, callback: any) => {
     console.log('executed query', text);
     return pool.query(text, params, callback);
-  }
+  },
 };

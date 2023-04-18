@@ -1,9 +1,9 @@
 import express, { Request, Response, NextFunction, RequestHandler } from 'express';
 
-require('dotenv').config();
-console.log(process.env.PG_URI)
 
 const app = express();
+
+const cookieParser = require('cookie-parser');
 
 // routers
 const authRouter = require('./routes/authRouter');
@@ -11,6 +11,7 @@ const interviewRouter = require('./routes/interviewRouter');
 const applicationRouter = require('./routes/applicationRouter');
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req: Request, res: Response) => {
   res.status(200).send('HELLO!!!')
