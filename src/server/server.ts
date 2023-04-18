@@ -10,6 +10,8 @@ const app = express();
 
 app.use(express.json());
 
+app.use(express.static('..src/client'));
+
 app.get('/', (req: Request, res: Response) => {
   res.status(200).send('HELLO!!!')
 })
