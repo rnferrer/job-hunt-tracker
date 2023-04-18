@@ -1,4 +1,5 @@
 import express, { Request, Response, NextFunction, RequestHandler } from 'express';
+import cors from 'cors';
 
 type ServerError = {
   log: string,
@@ -9,8 +10,10 @@ type ServerError = {
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
-app.get('/', (req: Request, res: Response) => {
+app.post('/', (req: Request, res: Response) => {
+  console.log('get all requests');
   res.status(200).send('HELLO PIKACHU!!!')
 })
 
