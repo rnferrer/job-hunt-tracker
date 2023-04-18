@@ -21,6 +21,11 @@ module.exports = {
         exclude: /node_modules/,
         use: ['ts-loader'],
       },
+      {
+        test: /\.s?css/,
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
     ],
   },
   resolve: {
@@ -32,7 +37,7 @@ module.exports = {
       filename: './index.html',
     }),
     new CopyPlugin({
-      patterns: [{ from: './src/client/style.css' }],
+      patterns: [{ from: './src/client/styles/main.scss' }],
     }),
   ],
   devServer: {
@@ -42,7 +47,8 @@ module.exports = {
     proxy: {
       '/api': 'http://localhost:3000',
       secure: false
-    }
+    },
+    hot: true
   },
 
 }
