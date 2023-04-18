@@ -8,8 +8,6 @@ function SignUpForm() {
   // const { user, setUser } = useContext(UserContext); // from the UserContext state
   // const [username, setUsername] = useState("");
   // const [password, setPassword] = useState("");
-  // const [firstName, setFirstName] = useState("");
-  // const [lastName, setLastName] = useState("");
 
   // const navigate = useNavigate();
 
@@ -44,30 +42,20 @@ function SignUpForm() {
 
   //RENDER
   return (
-    <div className="loginCont">
-      <div className="user-login-box">
-        <h1 className="login-header">Create a new Account:</h1>
-        <form className="loginForm">
-          <div className="formLine">
-            <label className="login-text" htmlFor="username">Username/Email</label>
-            <input className="user-input"type="text" required/>
-          </div>
-          <div className="formLine">
-            <label className="login-text" htmlFor="password">Password</label>
-            <input className="user-input" type="password" required/></div>
-          <div className="formLine">
-            <label className="login-text" htmlFor="firstName">First Name</label>
-            <input className="user-input" type="text" required/>
-          </div>
-          <div className="formLine">
-            <label className="login-text" htmlFor="lastName">Last Name</label>
-            <input className="user-input" type="text" required/>
-          </div>
-          <button className="submit">Submit</button>
-        </form>
-        <div className="login-footer">
-          Already have an account? <Link to="/">Sign in here!</Link>
+    <div className="signupForm">
+      <h3>Create a new Account:</h3>
+      <form>
+        <div className="formLine">
+          <label className="login-text" htmlFor="username">Username</label>
+          <input className="user-input"type="text" required/>
         </div>
+        <div className="formLine">
+          <label className="login-text" htmlFor="password">Password</label>
+          <input className="user-input" type="password" required/></div>
+        <button type="submit">Submit</button>
+      </form>
+      <div className="login-footer">
+        Already have an account? <Link to="/">Sign in here!</Link>
       </div>
     </div>
   );

@@ -47,8 +47,8 @@ const SignInForm = () => {
       <form onSubmit={handleSubmit}>
         <h1>Sign-in</h1>
         <div>
-          <label htmlFor="email">Email</label>
-          <input onChange= {(e) => setUsername(e.target.value)} type="text" name="email" required />
+          <label htmlFor="username">Username</label>
+          <input onChange= {(e) => setUsername(e.target.value)} type="text" name="username" required />
         </div>
         <div>
           <label htmlFor="pwd">Password</label>

@@ -12,9 +12,19 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get('/', (req: Request, res: Response) => {
+  console.log('get all requests');
+  res.status(200).send('GET PIKACHU!!!')
+})
+
 app.post('/', (req: Request, res: Response) => {
   console.log('get all requests');
   res.status(200).send('HELLO PIKACHU!!!')
+})
+
+app.get('/signup', (req: Request, res: Response) => {
+  console.log('get signup route');
+  res.status(200).send('Sign up to this cool job hunt tracker')
 })
 
 app.use('/', (err: ServerError, req: Request, res: Response, next: NextFunction) => {

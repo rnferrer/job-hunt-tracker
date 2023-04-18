@@ -48,7 +48,8 @@ module.exports = {
       '/api': 'http://localhost:3000',
       secure: false
     },
-    hot: true
+    hot: true,
+    historyApiFallback: true,
   },
   devtool: 'eval-cheap-source-map',
 }
