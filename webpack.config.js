@@ -4,10 +4,10 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/client/App.tsx',
+  entry: './src/client/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -50,5 +50,5 @@ module.exports = {
     },
     hot: true
   },
-
+  devtool: 'eval-cheap-source-map',
 }
