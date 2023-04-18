@@ -1,6 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SignInForm from './components/SignInForm';
+import SignUpForm from './components/SignUpForm';
+import Applications from './components/Applications';
 import './styles/main.scss';
 
 
@@ -9,12 +11,12 @@ const App = () => {
     <div>
       <h1 className='hello'>Job Tracker</h1>
       <Routes>
-        {/* <Route path='/' Component={SignInForm} /> */}
         <Route path='/' element={<SignInForm />} />
-        {/* <Route path='/applications' Component={Applications} />
-        <Route path='/appDetails' Component={AppDetails} />
-        <Route path='/interviews' Component={Interviews} />
-        <Route path='/questions' Component={Questions} /> */}
+        <Route path='/signup' element={<SignUpForm />} />
+        <Route path='/applications' Component={Applications} />
+        {/* <Route path='/appDetails' Component={AppDetails} /> */}
+        {/* <Route path='/interviews' Component={Interviews} />
+        <Route path='/questions' Component={Questions} /> */ }
       </Routes>  
     </div>
   );
