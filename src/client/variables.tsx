@@ -8,9 +8,9 @@ export interface Application {
   status: string;
   notes?: string;
   companyContacts?: CompanyContacts;
-  recuiter?: Recruiter;
+  recruiter?: Recruiter;
   linkToApplicationURL?: string;
-  additionalNotes?: string;
+  addAdditionalNotes?: string;
 }
 
 export interface CompanyContacts {
@@ -33,3 +33,7 @@ export interface Status {
   notStarted: number;
   inProgress: number;
 }
+
+// export interface AppContextValue {
+//   applications: Application[];
+// }

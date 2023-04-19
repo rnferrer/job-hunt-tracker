@@ -25,14 +25,15 @@ function SignUpForm() {
       username: username,
       password: password,
     };
-    axios.post('http://localhost:3000/api/auth/register', registerData, {
+
+    axios
+      .post('/api/auth/register', registerData, {
       headers: { "Content-Type": "application/json" },
       })
       .then((res) => {
         console.log('resdata', res.data)
         setUser(res.data); // update user context with response data
-        // navigate('/applications')
-        console.log("user created and logged in on signuppage.jsx");
+        navigate('/applications')
       })
       .catch((error) => {
         console.log("unable to signup user", error);
@@ -42,16 +43,17 @@ function SignUpForm() {
 
   //RENDER
   return (
-    <div className="signupForm">
-      <h3>Create a new Account:</h3>
+    <div className="signinForm">
+      <h1>Create a new Account:</h1>
       <form onSubmit={handleSubmit}>
         <div className="formLine">
           <label className="login-text" htmlFor="username">Username</label>
-          <input onChange= {(e) => setUsername(e.target.value)} className="user-input"type="text" required/>
+          <input onChange= {(e) => setUsername(e.target.value)} type="text" required/>
         </div>
         <div className="formLine">
           <label className="login-text" htmlFor="password">Password</label>
-          <input onChange= {(e) => setPassword(e.target.value)} className="user-input" type="password" required/></div>
+          <input onChange= {(e) => setPassword(e.target.value)} type="password" required/>
+        </div>
         <button type="submit">Submit</button>
       </form>
       <div className="login-footer">
