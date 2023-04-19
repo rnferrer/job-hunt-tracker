@@ -55,7 +55,7 @@ const Applications: React.FC = () => {
         setApplications(res.data); // update application context with response data
       })
       .catch((error) => {
-        console.log("unable to signup user", error);
+        console.log("unable to get apps", error);
       });
 
 
@@ -105,13 +105,13 @@ const Applications: React.FC = () => {
 
 
       <Link to="/add-application">
-          <button className="button"  id="addApplication" onClick={() => {
+          {/* <button className="button"  id="addApplication" onClick={() => {
             setTimeout(() => document.getElementById("addApplicationInput").focus(), 50);
       
             setIsOpen(true);
-          }}>
+          }}> */}
           Add Application
-        </button>
+        {/* </button> */}
       </Link>
     
       <div className='table-container'>
@@ -127,7 +127,7 @@ const Applications: React.FC = () => {
             </tr>
           </thead>
           <tbody className='divide-y bg-gray-50'>
-            {appList};
+            {appList}
           </tbody>
         </table>
       </div>

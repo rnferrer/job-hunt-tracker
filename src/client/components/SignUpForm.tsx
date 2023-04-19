@@ -33,8 +33,7 @@ function SignUpForm() {
       .then((res) => {
         console.log('resdata', res.data)
         setUser(res.data); // update user context with response data
-        // navigate('/applications')
-        console.log("user created and logged in on signuppage.jsx");
+        navigate('/applications')
       })
       .catch((error) => {
         console.log("unable to signup user", error);

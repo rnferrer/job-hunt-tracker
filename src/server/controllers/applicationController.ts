@@ -20,7 +20,6 @@ const getApplication = async (req: Request, res: Response, next: NextFunction) =
 
 const createApplication = async (req: Request, res: Response, next: NextFunction) => {
   const { id: user_id } = req.cookies
-
   const { position_title, status, date_applied, company_name } = req.body;
   const query = `INSERT INTO applications (user_id, position_title, company_name, status, date_applied) VALUES (${user_id}, '${position_title}', '${company_name}', '${status}', '${date_applied}') RETURNING *`
   const newApp = await db.query(query);

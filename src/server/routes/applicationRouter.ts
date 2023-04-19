@@ -19,10 +19,6 @@ router.post('/', createApplication, createRecruiter, (req: Request, res:Response
   return res.status(200).json({app: res.locals.app, recruiter: res.locals.recruiter});
 })
 
-router.get('/:id', getApplication, (req: Request, res:Response) => {
-
-})
-
 router.patch('/', updateApplication, (req: Request, res:Response) => {
 
 })

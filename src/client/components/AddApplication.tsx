@@ -2,16 +2,13 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link, Route } from 'react-router-dom';
 import App from '../App';
 import Modal from './Modal';
-import { Application, Status, CompanyContacts, Recruiter } from '../variables';
+// import { Application, Status, CompanyContacts, Recruiter } from '../variables';
 import axios from 'axios';
-import UserContext from "../UserContext";
+// import UserContext from "../UserContext";
 // import {  AppContext, AppProvider } from './appContext';
 
 const AddApplication = () => {
 
-  // const location = useLocation();
-  // const state = location.state;
-  // const { position, company, dateApplied, status } = useContext(AppContext);
   
   const navigate = useNavigate();
   // Set default creation date as today
@@ -57,7 +54,7 @@ const AddApplication = () => {
         setStatus('');
     })
     .catch((error) => {
-      console.log("unable to signup user", error);
+      console.log("unable to add newApp", error);
     });
     
     // navigate to applications page
@@ -66,8 +63,6 @@ const AddApplication = () => {
 
   return (
     <div id="addApplicationContainer">
-    
-
      <form onSubmit={handleSubmit} id="addApplicationInput">
        <label htmlFor="position">Position:</label>
        <input type="text" id="position" value={position} onChange={(e) => setPosition(e.target.value)} />
@@ -88,8 +83,6 @@ const AddApplication = () => {
        </select>
        <button type="submit">Save</button>
      </form>
-  
-    
     </div>
 
   );

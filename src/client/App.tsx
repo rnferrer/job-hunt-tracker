@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import SignInForm from './components/SignInForm';
 import SignUpForm from './components/SignUpForm';
 import Applications from './components/Applications';
-// import AddApplication from './components/AddApplication';
+import AddApplication from './components/AddApplication';
 import './styles/main.scss';
 
 
@@ -14,7 +14,7 @@ const App = () => {
         <Route path='/' element={<SignInForm />} />
         <Route path='/signup' element={<SignUpForm />} />
         <Route path='/applications' element={<Applications />} />
-        {/* <Route path='/add-application' element={<AddApplication />} /> */}
+        <Route path='/add-application' element={<AddApplication />} />
         {/* <Route path='/interviews' Component={Interviews} />  */}
         {/* <Route path='/questions' Component={Questions} /> */ } 
       </Routes>  
