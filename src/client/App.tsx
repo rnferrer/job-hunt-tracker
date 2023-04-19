@@ -2,7 +2,10 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SignInForm from './components/SignInForm';
 import SignUpForm from './components/SignUpForm';
-// import Applications from './components/Applications';
+import Applications from './components/Applications';
+import AddApplication from './components/AddApplication';
+import Interviews from './components/Interviews';
+// import ApplicationDetails from './components/ApplicationDetails';
 import './styles/main.scss';
 
 
@@ -13,10 +16,11 @@ const App = () => {
       <Routes>
         <Route path='/' element={<SignInForm />} />
         <Route path='/signup' element={<SignUpForm />} />
-        {/* <Route path='/applications' Component={Applications} /> */}
-        {/* <Route path='/appDetails' Component={AppDetails} /> */}
-        {/* <Route path='/interviews' Component={Interviews} />
-        <Route path='/questions' Component={Questions} /> */ }
+        <Route path='/applications' element={<Applications />} />
+        <Route path='/add-application' element={<AddApplication />} />
+        {/* <Route path='/applications/:id' element={<ApplicationDetails />} /> */}
+        <Route path='/interviews' Component={Interviews} /> 
+        {/* <Route path='/questions' Component={Questions} /> */ } 
       </Routes>  
     </div>
   );

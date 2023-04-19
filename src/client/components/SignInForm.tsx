@@ -35,7 +35,7 @@ const SignInForm = () => {
       setUser(existingUser);
       setUsername("");
       setPassword("");
-      // navigate('/applications');
+      navigate('/applications');
     })
     .catch((error) => {
       console.log("unable to signin user", error);
