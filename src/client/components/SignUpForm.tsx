@@ -44,8 +44,8 @@ function SignUpForm() {
 
   //RENDER
   return (
-    <div className="signupForm">
-      <h3>Create a new Account:</h3>
+    <div className="signinForm">
+      <h1>Create a new Account:</h1>
       <form onSubmit={handleSubmit}>
         <div className="formLine">
           <label className="login-text" htmlFor="username">Username</label>

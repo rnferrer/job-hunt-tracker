@@ -33,6 +33,7 @@ const Applications: React.FC = () => {
     // setApplications([...applications, newApplication]);
   };
 
+
   useEffect(() => {
     // fetch applications from database
     const fetchedApplications: Application[] = [{
@@ -50,32 +51,49 @@ const Applications: React.FC = () => {
       .get('/api/application')
       .then((res) => {
         // check the shape of data that comes back
-        console.log('resdata', res)
+        console.log('resdata', res.data)
         setApplications(res.data); // update application context with response data
       })
       .catch((error) => {
         console.log("unable to signup user", error);
       });
 
-    // update state with fetched applications data
-    setApplications(fetchedApplications);
 
-    // calculate status counts
-    let notStarted = 0;
-    let inProgress = 0;
-    fetchedApplications.forEach((application) => {
-      if (application.status === "not started") {
-        notStarted++;
-      } else if (application.status !== "not started") {
-        inProgress++;
-      }
-    });
-    setStatus({
-      total: fetchedApplications.length,
-      notStarted,
-      inProgress,
-    });
+    // // calculate status counts
+    // let notStarted = 0;
+    // let inProgress = 0;
+    // fetchedApplications.forEach((application) => {
+    //   if (application.status === "not started") {
+    //     notStarted++;
+    //   } else if (application.status !== "not started") {
+    //     inProgress++;
+    //   }
+    // });
+    // setStatus({
+    //   total: fetchedApplications.length,
+    //   notStarted,
+    //   inProgress,
+    // });
+
   }, []);
+
+
+  let appList: any[] = [];
+  applications.forEach((application) => {
+    const newDateApplied = application["date_applied"] === null ? '' : new Date(application["date_applied"]).toDateString();
+    const recentDateApplied = application["recent_contact_date"] === null ? '' : new Date(application["recent_contact_date"]).toDateString();
+    appList.push(
+      <tr className="applicationRow border-b hover:bg-gray-100" key={application["app_id"]}>
+        <td className="applicationCol py-2 px-4">{application["position_title"]}</td>
+        <td className="applicationCol py-2 px-4">{newDateApplied}</td>
+        <td className="applicationCol py-2 px-4">{recentDateApplied}</td>
+        <td className="applicationCol py-2 px-4">{application["company_name"]}</td>
+        <td className="applicationCol py-2 px-4">{application["status"]}</td>
+        <td className="applicationCol py-2 px-4">{application["notes"]}</td>
+      </tr>
+    )
+  })
+  
 
   return (
    <div className="container">
@@ -84,46 +102,37 @@ const Applications: React.FC = () => {
         <p>Not Yet Started</p>
         <p>In Progress: {status.inProgress}</p>
       </div>
-{/* 
-    <Link to="/applications/new">
-      <button id="addApplication" onClick={() => {
-    <Link to="/add-application">
-        <button className="button"  id="addApplication" onClick={() => {
-        setTimeout(() => document.getElementById("addApplicationInput").focus(), 50);
-  
-        setIsOpen(true);
-      }}>
-      Add Application
-    </button>
-    </Link> */}
-    
-    
-    <table className="applicationList">
-      <thead>
-        <tr className="headerRow">
-          <th className="headerCol">Position</th>
-          <th className="headerCol">App Date</th>
-          <th className="headerCol">Most Recent Contact Date</th>
-          <th className="headerCol">Company</th>
-          <th className="headerCol">Status</th>
-          <th className="headerCol">Details</th>
-        </tr>
-      </thead>
-      <tbody>
-        {applications.map((application) => (
-          <tr className="applicationRow" key={application.id}>
-            <td className="applicationCol">{application.position}</td>
-            <td className="applicationCol">{application.appDate}</td>
-            <td className="applicationCol">{application.mostRecentContact}</td>
-            <td className="applicationCol">{application.company}</td>
-            <td className="applicationCol">{application.status}</td>
-            <td className="applicationCol">{application.notes}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
 
-  </div>
+
+      <Link to="/add-application">
+          <button className="button"  id="addApplication" onClick={() => {
+            setTimeout(() => document.getElementById("addApplicationInput").focus(), 50);
+      
+            setIsOpen(true);
+          }}>
+          Add Application
+        </button>
+      </Link>
+    
+      <div className='table-container'>
+        <table className="applicationList border-collapse border border-gray-400">
+          <thead>
+            <tr className="headerRow">
+              <th className="headerCol py-2 px-4">Position</th>
+              <th className="headerCol py-2 px-4">App Date</th>
+              <th className="headerCol py-2 px-4">Most Recent Contact Date</th>
+              <th className="headerCol py-2 px-4">Company</th>
+              <th className="headerCol py-2 px-4">Status</th>
+              <th className="headerCol py-2 px-4">Details</th>
+            </tr>
+          </thead>
+          <tbody className='divide-y bg-gray-50'>
+            {appList};
+          </tbody>
+        </table>
+      </div>
+
+    </div>
   )
 }
 

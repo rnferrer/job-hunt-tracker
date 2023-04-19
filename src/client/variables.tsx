@@ -33,3 +33,7 @@ export interface Status {
   notStarted: number;
   inProgress: number;
 }
+
+// export interface AppContextValue {
+//   applications: Application[];
+// }

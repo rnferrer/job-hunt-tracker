@@ -13,6 +13,10 @@
   color: rgb(160, 39, 140);
 }
 
+body{
+  font-family: $main-font;
+}
+
 .container {
   display: grid;
   grid-template-areas:
@@ -36,6 +40,10 @@
   color: black;
   width: 300px
 }
+
+// .table-auto {
+//   table-layout: auto
+// }
 
 .button {
   grid-area: button;
@@ -84,3 +92,6 @@
   background-color: rgb(150, 132, 150);
   height: 60px;
 }
+
+@import 'application.scss';
+@import 'login.scss';

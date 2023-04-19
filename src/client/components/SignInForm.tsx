@@ -29,8 +29,7 @@ const SignInForm = () => {
       headers: { "Content-Type": "application/json" },
     })
     .then((res) => {
-      const existingUser = res.data;
-      console.log('res', existingUser)
+      const existingUser = 'test';
       setUser(existingUser);
       setUsername("");
       setPassword("");
@@ -56,7 +55,7 @@ const SignInForm = () => {
         </div>
         <button type="submit">Sign-in</button>
         <div className="sign-up">
-          Don't have an Account? <Link to="/signup">Sign up here!</Link>
+          Don't have an Account? <Link to="/signup"> Sign up here!</Link>
         </div>
       </form>
     </div>
