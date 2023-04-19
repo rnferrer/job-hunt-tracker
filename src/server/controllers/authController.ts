@@ -1,5 +1,5 @@
 import { log } from 'console';
-import express, { Request, Response, NextFunction, RequestHandler } from 'express';
+import  { Request, Response, NextFunction, RequestHandler } from 'express';
 const db = require('../models/jobHuntModel');
 
 const register = async (req:Request, res:Response, next:NextFunction) => {
@@ -25,7 +25,7 @@ const login = async (req:Request, res:Response, next:NextFunction) => {
   const user = await db.query(`SELECT * FROM users WHERE username = '${username}' and password = '${password}'`)
   const userRow = user.rows[0];
   console.log(userRow)
-  if (!userRow) {
+  if (userRow) {
     res.cookie('id', user.rows[0].user_id);
     return res.status(200).send('Login successful!');
   }
