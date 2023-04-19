@@ -25,8 +25,7 @@ const SignInForm = () => {
     const loginData = { username: username, password: password };
 
     // send username and password to backend
-    // PENDING FOR RESPONSE DATA SHAPE //
-    axios.post('http://localhost:3000/api/auth/login', loginData, {
+    axios.post('/api/auth/login', loginData, {
       headers: { "Content-Type": "application/json" },
     })
     .then((res) => {
@@ -35,7 +34,7 @@ const SignInForm = () => {
       setUser(existingUser);
       setUsername("");
       setPassword("");
-      navigate('/signup');
+      navigate('/applications');
     })
     .catch((error) => {
       console.log("unable to signin user", error);
@@ -53,7 +52,7 @@ const SignInForm = () => {
         </div>
         <div>
           <label htmlFor="pwd">Password</label>
-          <input onChange= {(e) => setPassword(e.target.value)} type="text" name="pwd" required />
+          <input onChange= {(e) => setPassword(e.target.value)} type="password" name="password" required />
         </div>
         <button type="submit">Sign-in</button>
         <div className="sign-up">

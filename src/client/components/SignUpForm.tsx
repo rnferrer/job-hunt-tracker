@@ -47,11 +47,12 @@ function SignUpForm() {
       <form onSubmit={handleSubmit}>
         <div className="formLine">
           <label className="login-text" htmlFor="username">Username</label>
-          <input onChange= {(e) => setUsername(e.target.value)} className="user-input"type="text" required/>
+          <input onChange= {(e) => setUsername(e.target.value)} type="text" required/>
         </div>
         <div className="formLine">
           <label className="login-text" htmlFor="password">Password</label>
-          <input onChange= {(e) => setPassword(e.target.value)} className="user-input" type="password" required/></div>
+          <input onChange= {(e) => setPassword(e.target.value)} type="password" required/>
+        </div>
         <button type="submit">Submit</button>
       </form>
       <div className="login-footer">

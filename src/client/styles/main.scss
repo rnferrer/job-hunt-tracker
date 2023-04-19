@@ -12,3 +12,29 @@
   // background-color: $main-color; 
   color: rgb(39, 160, 148);
 }
+
+#statusTracker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: mediumspringgreen;
+  color: rgb(222, 25, 183);
+  height: 60px;
+}
+
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: violet;
+  color: rgb(27, 162, 85);
+  height: 60px;
+}
+.headerCol {
+  display: flex;
+  align-items: center;
+  color: rgb(1, 4, 2)
+}
