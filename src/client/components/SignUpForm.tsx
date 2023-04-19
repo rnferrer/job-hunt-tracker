@@ -26,7 +26,7 @@ function SignUpForm() {
       password: password,
     };
     axios
-      .post('/api/signup', registerData, {
+      .post('/api/auth/register', registerData, {
       headers: { "Content-Type": "application/json" },
       })
       .then((res) => {

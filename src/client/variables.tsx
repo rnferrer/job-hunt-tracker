@@ -8,9 +8,9 @@ export interface Application {
   status: string;
   notes?: string;
   companyContacts?: CompanyContacts;
-  recuiter?: Recruiter;
+  recruiter?: Recruiter;
   linkToApplicationURL?: string;
-  additionalNotes?: string;
+  addAdditionalNotes?: string;
 }
 
 export interface CompanyContacts {

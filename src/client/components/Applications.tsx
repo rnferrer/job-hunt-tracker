@@ -1,6 +1,7 @@
 import  React, { useContext, useState, useEffect } from 'react';
 import  { Link, Route } from 'react-router-dom';
 import AddApplication  from './AddApplication';
+// import ApplicationDetails from './ApplicationDetails'
 import { Application, Status } from '../variables';
 import axios from 'axios';
 
@@ -86,7 +87,7 @@ const Applications: React.FC = () => {
 
     <button>Filter</button>
 
-    <Link to="/applications/new">
+    {/* <Link to="/applications/new">
       <button id="addApplication" onClick={() => {
         setTimeout(() => document.getElementById("addApplicationInput").focus(), 50);
   
@@ -94,7 +95,7 @@ const Applications: React.FC = () => {
       }}>
       Add Application
     </button>
-    </Link>
+    </Link> */}
     
     <table className="applicationList">
       <thead>
