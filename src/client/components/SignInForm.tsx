@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import UserContext from "../UserContext";
 import { Link, useNavigate } from 'react-router-dom';
+import UserContext from "../UserContext";
 import axios from 'axios';
 
 const SignInForm = () => {
@@ -35,12 +35,14 @@ const SignInForm = () => {
       setUser(existingUser);
       setUsername("");
       setPassword("");
+      // navigate('/applications');
     })
     .catch((error) => {
-      console.log(error);
-      alert(error.response.data);
+      console.log("unable to signin user", error);
     });
   }
+
+  console.log('user at signin', user)
 
   return (
     <div className="signinForm">
