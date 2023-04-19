@@ -1,41 +1,31 @@
 import express, { Request, Response, NextFunction, RequestHandler } from 'express';
 import cors from 'cors';
 
+const app = express();
+
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+
+// routers
+const authRouter = require('./routes/authRouter');
+const interviewRouter = require('./routes/interviewRouter');
+const applicationRouter = require('./routes/applicationRouter');
+
+app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+
+app.use('/api/auth', authRouter);
+app.use('/api/application', applicationRouter);
+app.use('/api/interview', interviewRouter);
+
 type ServerError = {
   log: string,
   status: number,
   message: {err: string}
 };
-
-const app = express();
-
-app.use(express.json());
-app.use(cors());
-
-app.get('/signup', (req: Request, res: Response) => {
-  console.log('get signup route');
-  res.status(200).send('Sign up to this cool job hunt tracker')
-})
-
-app.post('/signup', (req: Request, res: Response) => {
-  console.log('get signup route');
-  res.status(200).send('WELCOME PIKACHU!!!')
-})
-
-app.use(express.static('..src/client'));
-
-app.get('/', (req: Request, res: Response) => {
-  console.log('get all requests');
-  res.status(200).send('GET PIKACHU!!!')
-})
-
-app.post('/', (req: Request, res: Response) => {
-  console.log('get all requests');
-  res.status(200).send('HELLO PIKACHU!!!')
-})
-
-
-
 app.use('/', (err: ServerError, req: Request, res: Response, next: NextFunction) => {
   const defaultErr: ServerError = {
     log: 'Express error handler caught unknown middleware error',
