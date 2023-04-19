@@ -10,7 +10,7 @@ const Interviews = () => {
   return (
     <div>
       <h3>All Interviews</h3>
-      <table>
+      <table className="interviewsTable">
         <thead>
           <tr>
             <th>Interview ID</th>

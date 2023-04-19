@@ -25,9 +25,10 @@ function SignUpForm() {
       username: username,
       password: password,
     };
-    axios.post('/api/signup', registerData, {
+    axios
+      .post('/api/signup', registerData, {
       headers: { "Content-Type": "application/json" },
-    })
+      })
       .then((res) => {
         console.log('resdata', res.data)
         setUser(res.data); // update user context with response data
