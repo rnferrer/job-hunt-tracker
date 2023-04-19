@@ -7,7 +7,7 @@ export interface Application {
   company: string;
   status: string;
   notes?: string;
-  companyContacts?: companyContacts;
+  companyContacts?: CompanyContacts;
   recuiter?: Recruiter;
   linkToApplicationURL?: string;
   additionalNotes?: string;

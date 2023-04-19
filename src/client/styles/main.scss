@@ -18,7 +18,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  background-color: mediumspringgreen;
+  background-color: rgb(114, 46, 133);
   color: rgb(222, 25, 183);
   height: 60px;
 }
@@ -37,4 +37,26 @@
   display: flex;
   align-items: center;
   color: rgb(1, 4, 2)
+}
+
+// Applications
+.applicationRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: rgb(150, 132, 150);
+  height: 60px;
+}
+
+//Interviews
+.interviewsTable {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: rgb(150, 132, 150);
+  height: 60px;
 }
