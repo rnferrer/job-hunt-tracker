@@ -78,24 +78,27 @@ const Applications: React.FC = () => {
   }, []);
 
   return (
-   <div>
+   <div className="container">
     <div id="statusTracker">
       <p>Total: {status.total}</p>
       <p>Not Yet Started</p>
       <p>In Progress: {status.inProgress}</p>
     </div>
-
-    <button>Filter</button>
+    <div id="buttons">
+    <button className="button">Filter</button>
 
     {/* <Link to="/applications/new">
       <button id="addApplication" onClick={() => {
+    <Link to="/add-application">
+        <button className="button"  id="addApplication" onClick={() => {
         setTimeout(() => document.getElementById("addApplicationInput").focus(), 50);
   
         setIsOpen(true);
       }}>
       Add Application
     </button>
-    </Link> */}
+    </Link>
+    </div>
     
     <table className="applicationList">
       <thead>

@@ -25,6 +25,7 @@ function SignUpForm() {
       username: username,
       password: password,
     };
+    axios.post('http://localhost:3000/api/auth/register', registerData, {
     axios
       .post('/api/auth/register', registerData, {
       headers: { "Content-Type": "application/json" },

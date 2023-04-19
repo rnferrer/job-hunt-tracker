@@ -10,27 +10,50 @@
 
 .hello {
   // background-color: $main-color; 
-  color: rgb(39, 160, 148);
+  color: rgb(160, 39, 140);
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+  "statusTracker"
+  "button"
+  "headerRow"
+  "applicationRow";
+  grid-template-rows: 60px 60px 60px;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  height: 100vh;
 }
 
 #statusTracker {
+  grid-area: statusTracker;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  background-color: rgb(114, 46, 133);
-  color: rgb(222, 25, 183);
-  height: 60px;
+  background-color: rgb(194, 248, 200);
+  color: black;
+  width: 300px
 }
 
-
+.button {
+  grid-area: button;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: rgb(194, 248, 200);
+  color: black;
+}
 .headerRow {
+  grid-area: headerRow;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
   background-color: violet;
-  color: rgb(27, 162, 85);
+  color: rgb(194, 248, 200);
   height: 60px;
 }
 .headerCol {
@@ -41,12 +64,13 @@
 
 // Applications
 .applicationRow {
+  grid-area: applicationsRow;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  background-color: rgb(150, 132, 150);
+  background-color: rgb(194, 248, 200);
   height: 60px;
 }
 
