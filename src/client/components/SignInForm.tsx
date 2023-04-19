@@ -26,7 +26,7 @@ const SignInForm = () => {
 
     // send username and password to backend
     // PENDING FOR RESPONSE DATA SHAPE //
-    axios.post('http://localhost:3000/', loginData, {
+    axios.post('/api', loginData, {
       headers: { "Content-Type": "application/json" },
     })
     .then((res) => {
@@ -42,7 +42,6 @@ const SignInForm = () => {
     });
   }
 
-  console.log('user at signin', user)
 
   return (
     <div className="signinForm">

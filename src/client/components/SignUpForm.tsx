@@ -25,7 +25,7 @@ function SignUpForm() {
       username: username,
       password: password,
     };
-    axios.post('http://localhost:3000/signup', registerData, {
+    axios.post('/api/signup', registerData, {
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => {
@@ -39,7 +39,6 @@ function SignUpForm() {
       });
   };
 
-  console.log('user at signup', user)
 
   //RENDER
   return (
