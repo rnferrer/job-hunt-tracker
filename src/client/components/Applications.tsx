@@ -1,28 +1,14 @@
 import  React, { useContext, useState, useEffect } from 'react';
 import  { Link, Route } from 'react-router-dom';
-// import { Application } from './AddApplication';
-// import { Application, Status } from './ApplicationDetails';
+import AddApplication  from './AddApplication';
+import { Application, Status } from '../variables';
 
 // interface props {
 //   applications: Array<Application>;
 //   listApplications: React.Dispatch<React.SetStateAction<Application[]>>;
 //   setStatus: React.Dispatch<React.SetStateAction<Status>>;
 // }
-export interface Application {
-  id: number;
-  position: string;
-  appDate: string;
-  mostRecentContact: string;
-  company: string;
-  status: string;
-  details: string;
-}
 
-export interface Status {
-  total: number;
-  notStarted: number;
-  inProgress: number;
-}
 
 const Applications: React.FC = () => {
   
@@ -32,18 +18,28 @@ const Applications: React.FC = () => {
     notStarted: 0,
     inProgress: 0,
   });
+  // save new inputs to db
+  const saveApplication = (newApplication: Application) => {
+    id: 1;
+    position: 'SW Engineer';
+    appDate: '04/01/2021';
+    mostRecentContact: '04/01/2021';
+    company: 'OpenAI';
+    status: 'not started';
+    details: 'refered by friend';
+    // setApplications([...applications, newApplication]);
+  };
 
   useEffect(() => {
     // fetch applications from database
     const fetchedApplications: Application[] = [{
-      // sample data
       id: 1,
-      position: "Software Engineer",
-      appDate: "2021-01-01",
-      mostRecentContact: "2021-01-01",
-      company: "OpenAI",
-      status: "not started",
-      details: "link to details",
+      position: 'SW Engineer',
+      appDate: '04/01/2021',
+      mostRecentContact: '04/01/2021',
+      company: 'OpenAI',
+      status: 'not started',
+      details: 'refered by friend',
     }];
     // update state with fetched applications data
     setApplications(fetchedApplications);
