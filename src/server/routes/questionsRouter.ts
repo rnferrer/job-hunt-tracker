@@ -17,15 +17,15 @@ router.post('/', createQuestion, (req: Request, res:Response) => {
 
 })
 
-router.get('/:id', getQuestion, (req: Request, res:Response) => {
+router.get('/', getQuestion, (req: Request, res:Response) => {
 
 })
 
-router.patch('/:id', updateQuestion, (req: Request, res:Response) => {
+router.patch('/', updateQuestion, (req: Request, res:Response) => {
 
 })
 
-router.delete('/:id', deleteQuestion, (req: Request, res:Response) => {
+router.delete('/', deleteQuestion, (req: Request, res:Response) => {
 
 })
 

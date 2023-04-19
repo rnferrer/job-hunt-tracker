@@ -3,7 +3,7 @@ const db = require('../models/jobHuntModel');
 import express, { Request, Response, NextFunction, RequestHandler } from 'express';
 
 const getAllInterviews = async (req: Request, res: Response, next: NextFunction) => {
-  const { user_id } = req.body;
+  const { id:user_id } = req.cookies;
   const query = `
   SELECT i.*
   FROM users u
@@ -26,11 +26,24 @@ const createInterview = async (req: Request, res: Response, next: NextFunction) 
 }
 
 const updateInterview = async (req: Request, res: Response, next: NextFunction) => {
-  const { interview_id, app_id,  } = req.body;
+  const { interview_id, date, time, location } = req.body;
+  const query = `
+    UPDATE interviews
+    SET
+    date = '${date}',
+    time = '${time}',
+    location = '${location}'
+    WHERE interview_id = ${interview_id}
+  `
+  await db.query(query);
+  return next();
 }
 
 const deleteInterview = async (req: Request, res: Response, next: NextFunction) => {
-
+  const { interview_id } = req.body;
+  const query = `DELETE FROM interviews WHERE interview_id = ${interview_id}`
+  await db.query(query);
+  return next();
 }
 
 module.exports = {

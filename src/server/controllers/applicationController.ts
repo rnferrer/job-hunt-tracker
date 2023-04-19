@@ -19,7 +19,8 @@ const getApplication = async (req: Request, res: Response, next: NextFunction) =
 }
 
 const createApplication = async (req: Request, res: Response, next: NextFunction) => {
-  const { user_id, position_title, status, date_applied, company_name } = req.body;
+  const { id: user_id } = req.cookies
+  const { position_title, status, date_applied, company_name } = req.body;
   const query = `INSERT INTO applications (user_id, position_title, company_name, status, date_applied) VALUES (${user_id}, '${position_title}', '${company_name}', '${status}', '${date_applied}') RETURNING *`
   const newApp = await db.query(query);
   res.locals.app = (newApp.rows[0])
@@ -27,8 +28,8 @@ const createApplication = async (req: Request, res: Response, next: NextFunction
 }
 
 const updateApplication = async (req: Request, res: Response, next: NextFunction) => {
-  // const { user_id } = req.cookies;
-  const {position_title, company_name, company_website, recent_contact_date, date_applied, reason, notes, application_link, status, app_id, user_id} = req.body;
+  const { id: user_id } = req.cookies;
+  const {position_title, company_name, company_website, recent_contact_date, date_applied, reason, notes, application_link, status, app_id } = req.body;
   const query = `
    UPDATE applications 
     SET

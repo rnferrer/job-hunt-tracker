@@ -17,16 +17,16 @@ router.post('/', createInterview, (req: Request, res:Response) => {
 
 })
 
-router.get('/:id', getInterview, (req: Request, res:Response) => {
+router.get('/', getInterview, (req: Request, res:Response) => {
 
 })
 
-router.patch('/:id', updateInterview, (req: Request, res:Response) => {
-
+router.patch('/', updateInterview, (req: Request, res:Response) => {
+  return res.status(200).send('interview info updated');
 })
 
-router.delete('/:id', deleteInterview, (req: Request, res:Response) => {
-
+router.delete('/', deleteInterview, (req: Request, res:Response) => {
+  return res.status(200).send('interview deleted')
 })
 
 module.exports = router;
