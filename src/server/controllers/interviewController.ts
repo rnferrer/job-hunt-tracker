@@ -6,9 +6,9 @@ const getAllInterviews = async (req: Request, res: Response, next: NextFunction)
   const { app_id, user_id } = req.body;
   const query = `
   SELECT i.*
-  FROM interviews i
-  JOIN applications a ON i.app_id = a.app_id
-  JOIN users u ON a.user_id = u.user_id;
+  FROM users u
+  JOIN applications a ON u.user_id = a.user_id
+  JOIN interviews i ON a.app_id = i.app_id
   WHERE u.user_id = ${user_id}
   `;
   let apps = await db.query(query);
