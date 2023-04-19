@@ -60,28 +60,28 @@ const Applications: React.FC<props> = () => {
     <button>Filter</button>
       <Link to="/add-application"><button>Add Application</button></Link>
 
-    <div className="applicationsList"></div>
-    
-
+    <div className="applicationsList">
       <div className="headerRow">
         <div className="headerCol">Position</div>
-      <div className="headerCol">App Date</div>
-      <div className="headerCol">Most Recent Contact Date</div>
-      <div className="headerCol">Company</div>
-      <div className="headerCol">Status</div>
-      <div className="headerCol">Details</div>
-    </div>
+        <div className="headerCol">App Date</div>
+        <div className="headerCol">Most Recent Contact Date</div>
+        <div className="headerCol">Company</div>
+        <div className="headerCol">Status</div>
+        <div className="headerCol">Details</div>
+      </div>
 
-    {/* {applications.map((application) => {
-      <div classname="applicationRow" key={application.position}></div>
+    {applications.map((application) => (
+      <div className="applicationRow" key={application.position}>
       <div className="applicationCol">{application.position}</div>
       <div className="applicationCol">{application.appDate}</div>
       <div className="applicationCol">{application.mostRecentContact}</div>
       <div className="applicationCol">{application.company}</div>
       <div className="applicationCol">{application.status}</div>
       <div className="applicationCol">{application.details}</div>
+      </div>
 
-    })} */}
+    ))}
+      </div>
     </div>
   )
 }
