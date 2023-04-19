@@ -3,7 +3,7 @@ const db = require('../models/jobHuntModel');
 
 
 const getAllApplications = async (req: Request, res: Response, next: NextFunction) => {
-  const { user_id } = req.body;
+  const { id: user_id } = req.cookies
   const query = `SELECT * FROM applications WHERE user_id = ${user_id}`;
   let apps = await db.query(query);
   res.locals.applications = apps.rows;

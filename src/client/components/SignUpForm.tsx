@@ -27,7 +27,7 @@ function SignUpForm() {
     };
     axios.post('http://localhost:3000/api/auth/register', registerData, {
       headers: { "Content-Type": "application/json" },
-    })
+      })
       .then((res) => {
         console.log('resdata', res.data)
         setUser(res.data); // update user context with response data

@@ -12,7 +12,7 @@ const {
 const {createRecruiter} = require('../controllers/recruiterController');
 
 router.get('/', getAllApplications, (req: Request, res:Response) => {
-  return res.status(200).json(res.locals.apps);
+  return res.status(200).json(res.locals.applications);
 })
 
 router.post('/', createApplication, createRecruiter, (req: Request, res:Response) => {
