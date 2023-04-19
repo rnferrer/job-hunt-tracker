@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"nodemon ./src/server/server.ts\" \"webpack-dev-server\""
+    "start": "concurrently \"nodemon ./src/server/server.ts\" \"webpack-dev-server --mode development --open --hot\""
   },
   "keywords": [],
   "author": "Matthew Kymn, Patricia Good, Raymond Ferrer, Tricia Yeh",
@@ -24,7 +24,7 @@
     "@babel/preset-env": "^7.21.4",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.21.4",
-    "@types/express": "^4.17.13",
+    "@types/express": "^4.17.17",
     "@types/node": "^17.0.8",
     "@types/react": "^18.0.31",
     "@types/react-dom": "^18.0.11",

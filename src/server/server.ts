@@ -22,6 +22,8 @@ app.post('/signup', (req: Request, res: Response) => {
   res.status(200).send('WELCOME PIKACHU!!!')
 })
 
+app.use(express.static('..src/client'));
+
 app.get('/', (req: Request, res: Response) => {
   console.log('get all requests');
   res.status(200).send('GET PIKACHU!!!')
