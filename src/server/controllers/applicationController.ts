@@ -20,8 +20,9 @@ const getApplication = async (req: Request, res: Response, next: NextFunction) =
 
 const createApplication = async (req: Request, res: Response, next: NextFunction) => {
   const { user_id, position_title, status, date_applied, company_name } = req.body;
-  const query = `INSERT INTO applications (user_id, position_title, company_name, status, date_applied) VALUES (${user_id}, '${position_title}', '${company_name}', '${status}', '${date_applied}')`
-  await db.query(query);
+  const query = `INSERT INTO applications (user_id, position_title, company_name, status, date_applied) VALUES (${user_id}, '${position_title}', '${company_name}', '${status}', '${date_applied}') RETURNING *`
+  const newApp = await db.query(query);
+  res.locals.app = (newApp.rows[0])
   return next();
 }
 

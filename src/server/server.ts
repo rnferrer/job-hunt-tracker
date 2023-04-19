@@ -10,6 +10,7 @@ const bodyParser = require('body-parser');
 const authRouter = require('./routes/authRouter');
 const interviewRouter = require('./routes/interviewRouter');
 const applicationRouter = require('./routes/applicationRouter');
+const recruiterRouter = require('./routes/recruiterRouter');
 
 app.use(express.json());
 app.use(bodyParser.json());
@@ -20,6 +21,7 @@ app.use(cors());
 app.use('/api/auth', authRouter);
 app.use('/api/application', applicationRouter);
 app.use('/api/interview', interviewRouter);
+app.use('/api/recruiter', recruiterRouter);
 
 type ServerError = {
   log: string,
