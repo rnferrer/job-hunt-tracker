@@ -10,18 +10,18 @@ const {
 } = require('../controllers/applicationController');
 
 router.get('/', getAllApplications, (req: Request, res:Response) => {
-
+  return res.status(200).json(res.locals.apps);
 })
 
 router.post('/', createApplication, (req: Request, res:Response) => {
-
+  return res.status(200).json(res.locals.app);
 })
 
 router.get('/:id', getApplication, (req: Request, res:Response) => {
 
 })
 
-router.patch('/:id', updateApplication, (req: Request, res:Response) => {
+router.patch('/', updateApplication, (req: Request, res:Response) => {
 
 })
 
