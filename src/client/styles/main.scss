@@ -12,3 +12,18 @@
   // background-color: $main-color; 
   color: blue;
 }
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: $main-color;
+  color: rgb(27, 162, 85);
+  height: 60px;
+}
+.headerCol {
+  display: flex;
+  align-items: center;
+  color: orange
+}
