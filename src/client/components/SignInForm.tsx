@@ -25,7 +25,6 @@ const SignInForm = () => {
     const loginData = { username: username, password: password };
 
     // send username and password to backend
-    // PENDING FOR RESPONSE DATA SHAPE //
     axios.post('/api/auth/login', loginData, {
       headers: { "Content-Type": "application/json" },
     })

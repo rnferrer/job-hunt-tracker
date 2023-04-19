@@ -50,7 +50,7 @@ const Applications: React.FC = () => {
       .get('/api/application')
       .then((res) => {
         // check the shape of data that comes back
-        console.log('resdata', res.data)
+        console.log('resdata', res)
         setApplications(res.data); // update application context with response data
       })
       .catch((error) => {
@@ -79,15 +79,13 @@ const Applications: React.FC = () => {
 
   return (
    <div className="container">
-    <div id="statusTracker">
-      <p>Total: {status.total}</p>
-      <p>Not Yet Started</p>
-      <p>In Progress: {status.inProgress}</p>
-    </div>
-    <div id="buttons">
-    <button className="button">Filter</button>
-
-    {/* <Link to="/applications/new">
+      <div id="statusTracker">
+        <p>Total: {status.total}</p>
+        <p>Not Yet Started</p>
+        <p>In Progress: {status.inProgress}</p>
+      </div>
+{/* 
+    <Link to="/applications/new">
       <button id="addApplication" onClick={() => {
     <Link to="/add-application">
         <button className="button"  id="addApplication" onClick={() => {
@@ -97,8 +95,8 @@ const Applications: React.FC = () => {
       }}>
       Add Application
     </button>
-    </Link>
-    </div>
+    </Link> */}
+    
     
     <table className="applicationList">
       <thead>
