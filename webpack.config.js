@@ -44,11 +44,15 @@ module.exports = {
     static: {
       directory: path.join(__dirname, './dist'),
     },
+    port: 8080,
     proxy: {
-      '/api': 'http://localhost:3000',
-      secure: false
+      '/api': {
+        target: 'http://localhost:3000',
+        pathRewrite: {'^/api' : ''}
+      }
     },
-    hot: true
+    hot: true,
+    historyApiFallback: true,
   },
   devtool: 'eval-cheap-source-map',
 }
