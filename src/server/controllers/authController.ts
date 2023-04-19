@@ -1,5 +1,5 @@
 import { log } from 'console';
-import express, { Request, Response, NextFunction, RequestHandler } from 'express';
+import  { Request, Response, NextFunction, RequestHandler } from 'express';
 const db = require('../models/jobHuntModel');
 
 const register = async (req:Request, res:Response, next:NextFunction) => {

@@ -9,12 +9,14 @@ const {
   deleteApplication
 } = require('../controllers/applicationController');
 
+const {createRecruiter} = require('../controllers/recruiterController');
+
 router.get('/', getAllApplications, (req: Request, res:Response) => {
   return res.status(200).json(res.locals.apps);
 })
 
-router.post('/', createApplication, (req: Request, res:Response) => {
-  return res.status(200).json(res.locals.app);
+router.post('/', createApplication, createRecruiter, (req: Request, res:Response) => {
+  return res.status(200).json({app: res.locals.app, recruiter: res.locals.recruiter});
 })
 
 router.get('/:id', getApplication, (req: Request, res:Response) => {
