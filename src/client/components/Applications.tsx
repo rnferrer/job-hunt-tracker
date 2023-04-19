@@ -1,14 +1,30 @@
 import  React, { useContext, useState, useEffect } from 'react';
 import  { Link, Route } from 'react-router-dom';
-import { Application, Status } from './ApplicationDetails';
+// import { Application } from './AddApplication';
+// import { Application, Status } from './ApplicationDetails';
 
-interface props {
-  applications: Array<Application>;
-  listApplications: React.Dispatch<React.SetStateAction<Application[]>>;
-  setStatus: React.Dispatch<React.SetStateAction<Status>>;
+// interface props {
+//   applications: Array<Application>;
+//   listApplications: React.Dispatch<React.SetStateAction<Application[]>>;
+//   setStatus: React.Dispatch<React.SetStateAction<Status>>;
+// }
+export interface Application {
+  id: number;
+  position: string;
+  appDate: string;
+  mostRecentContact: string;
+  company: string;
+  status: string;
+  details: string;
 }
 
-const Applications: React.FC<props> = () => {
+export interface Status {
+  total: number;
+  notStarted: number;
+  inProgress: number;
+}
+
+const Applications: React.FC = () => {
   
   const [applications, setApplications] = useState<Application[]>([]);
   const [status, setStatus] = useState<Status>({
@@ -58,7 +74,7 @@ const Applications: React.FC<props> = () => {
     </div>
 
     <button>Filter</button>
-      <Link to="/add-application"><button>Add Application</button></Link>
+    <Link to="/add-application"><button>Add Application</button></Link>
 
     <div className="applicationsList">
       <div className="headerRow">
