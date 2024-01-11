@@ -4,10 +4,10 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/client/App.tsx',
+  entry: './src/client/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -44,11 +44,14 @@ module.exports = {
     static: {
       directory: path.join(__dirname, './dist'),
     },
+    port: 8080,
     proxy: {
-      '/api': 'http://localhost:3000',
-      secure: false
+      '/api/**': {
+        target: 'http://localhost:3000',
+      }
     },
-    hot: true
+    hot: true,
+    historyApiFallback: true,
   },
-
+  devtool: 'eval-cheap-source-map',
 }
